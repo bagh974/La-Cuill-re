@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.min.css">		
+        <title>La Cuillère</title>
+    </head>
+    <body>
+	<div data-role="page" id="liste">
+	
+        <div data-role="header" data-position="fixed">
+            <h1>La Cuillère</h1>
+		</div>
+		
+		<div data-role="main" id="content">
+		<h3>Votre liste en cours</h3>
+		<!-- Courses en cours -->
+			<table data-role="table" class="ui-responsive table-stroke" id="shoppingList">
+				<thead>
+					<tr>
+						<th>Quantité</th>
+						<th>Produit</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="myList">
+
+				</tbody>
+			</table>
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed" class="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#liste" data-role="button" data-icon="grid" class="ui-btn-active" id="liste">Liste</a></li>
+					<li><a href="#recipes" data-role="button" data-icon="plus" id="addRecipe">Recette</a></li>
+					<li><a href="#products" data-role="button" data-icon="plus" id="addProd">Produit</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="recipes">
+	
+        <div data-role="header" data-position="fixed">
+            <h1>La Cuillère</h1>
+			<a href="#newRecipe" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-plus">Add</a>
+		</div>
+		
+		<div data-role="main" id="content">
+		<!-- Recettes -->
+		<form>
+		    <input data-type="search" id="searchRecipe">
+		</form>
+		    <div data-role="collapsibleset" data-filter="true" data-children="> div, > div div ul li" data-inset="true" id="listeTypeRecette" data-input="#searchRecipe">
+		        <div data-role="collapsible" data-filtertext="Entree Salade Soupe">
+		            <h3>Entrée</h3>
+		            <ul id="Entree" data-role="listview" data-inset="false">
+		                <li><a href="#details" data-filtertext="Salade">Salade</a></li>
+		                <li><a href="#details" data-filtertext="Soupe">Soupe</a></li>
+		            </ul>
+		        </div>
+		        <div data-role="collapsible" data-filtertext="Plat Lasagnes Poulet Ratatouille">
+		            <h3>Plat</h3>
+		            <ul id="Plat" data-role="listview" data-inset="false">
+		                <li><a href="#details" data-filtertext="Lasagnes">Lasagnes</a></li>
+		                <li><a href="#details" data-filtertext="Poulet">Poulet</a></li>
+		                <li><a href="#details" data-filtertext="Ratatouille">Ratatouille</a></li>
+		            </ul>
+		        </div>
+		        <div data-role="collapsible" data-filtertext="Dessert Mousse Crepes Cake">
+		            <h3>Dessert</h3>
+		            <ul id="Dessert" data-role="listview" data-inset="false">
+		                <li><a href="#details" data-filtertext="Mousse">Mousse</a></li>
+		                <li><a href="#details" data-filtertext="Crepes">Crepes</a></li>
+		                <li><a href="#details" data-filtertext="Cake">Cake</a></li>
+		            </ul>
+		        </div>
+		    </div>
+		
+		
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed" class="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#liste" data-role="button" data-icon="grid" id="liste">Liste</a></li>
+					<li><a href="#recipes" data-role="button" data-icon="plus" class="ui-btn-active" id="addRecipe">Recette</a></li>
+					<li><a href="#products" data-role="button" data-icon="plus" id="addProd">Produit</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div data-role="page" id="products">
+	
+        <div data-role="header" data-position="fixed">
+            <h1>La Cuillère</h1>
+		</div>
+		
+		<div data-role="main" id="content">
+		<!-- Produits -->
+		<div class="ui-field-contain">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<input id="quantite" type="text" placeholder="Quantite">
+				<input id="nomProd" type="text" placeholder="Mon produit"/>
+				<a href="#liste" data-role="button" data-icon="plus" id="add"></a>
+			</fieldset>
+		</div>
+		
+		
+
+		</div>
+		
+		<div data-role="footer" data-position="fixed" class="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#liste" data-role="button" data-icon="grid" id="liste">Liste</a></li>
+					<li><a href="#recipes" data-role="button" data-icon="plus" id="addRecipe">Recette</a></li>
+					<li><a href="#products" data-role="button" data-icon="plus" class="ui-btn-active" id="addProd">Produit</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="details">
+		<div data-role="header" data-position="fixed">
+			<h1 id="titreRecette"></h1>
+			
+			<a href="#recipes" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">
+				Back
+			</a>
+			
+			<a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-edit">
+				Edit
+			</a>
+			
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content">
+			<p id="ingredients"></p>
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed" class="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#liste" data-role="button" data-icon="grid" id="liste">Liste</a></li>
+					<li><a href="#recipes" data-role="button" data-icon="plus" class="ui-btn-active" id="addRecipe">Recette</a></li>
+					<li><a href="#products" data-role="button" data-icon="plus" id="addProd">Produit</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	<div data-role="page" id="newRecipe">
+		<div data-role="header" data-position="fixed">
+			<h1>Nouvelle recette</h1>
+			
+			<a href="#recipes" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">
+				Back
+			</a>
+			
+			<a href="#recipes" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check" id="save">
+				Save
+			</a>
+			
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content">
+			<div class="ui-field-contain">
+			    <select name="typeRecette" id="typeRecette">
+			        <option value="Entree">Entree</option>
+			        <option value="Plat">Plat</option>
+			        <option value="Dessert">Dessert</option>
+			    </select>
+				<input id="newTitre" type="text" placeholder="Titre de la recette"/>
+				<input type="range" id="newQuantite" value="1" min="0" max="1000" data-highlight="true">
+				<input id="ingredient" type="text" placeholder="Ingredient"/>
+				<a href="#" data-role="button" data-icon="plus" id="plus"></a>
+				<table data-role="table" class="ui-responsive table-stroke" id="ingreRecette">
+				<thead>
+					<tr>
+						<th>Quantité</th>
+						<th>Produit</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="listIngre">
+
+				</tbody>
+			</table>
+			
+			</div>
+			
+		</div><!-- /content -->
+		
+		<div data-role="footer" data-position="fixed" class="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#liste" data-role="button" data-icon="grid" id="liste">Liste</a></li>
+					<li><a href="#recipes" data-role="button" data-icon="plus" class="ui-btn-active" id="addRecipe">Recette</a></li>
+					<li><a href="#products" data-role="button" data-icon="plus" id="addProd">Produit</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/cuillereDB.js"></script>
+    </body>
+</html>
